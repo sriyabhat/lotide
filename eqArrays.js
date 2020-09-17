@@ -9,26 +9,18 @@ const assertEqual = function(actual,expected) {
 };
 
 const eqArrays = function(firstArray,secondArray) {
-  let matchedCount = 0;
+  
 
   //If both the arrays dont have the same number of elements then they are definitely not identical
   if (firstArray.length !== secondArray.length) {
     return false;
   } else {
     for (let i = 0; i < firstArray.length; i++) {
-      if (firstArray[i] === secondArray[i]) {
-        matchedCount++;
-      } else {
-        break;
+      if (firstArray[i] !== secondArray[i]) {
+        return false;
       }
     }
-    
-//If all the elements are equal then the matched count will be equal to the length of the array. 
-    if (matchedCount === firstArray.length) {
-      return true;
-    } else {
-      return false;
-    }
+    return true;
   }
 
 };
