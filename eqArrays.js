@@ -1,15 +1,7 @@
-const assertEqual = function(actual,expected) {
-  let returnString = "";
-  if (actual === expected) {
-    returnString = ` 😍 Assertion Passed: ${actual}  === ${expected}`;
-  } else {
-    returnString = ` ☹ Assertion Failed: ${actual} !== ${expected}`;
-  }
-  return returnString;
-};
 
-const eqArrays = function(firstArray,secondArray) {
-  
+const assertEqual = require('./assertEqual');
+
+const eqArrays = function(firstArray,secondArray) { 
 
   //If both the arrays dont have the same number of elements then they are definitely not identical
   if (firstArray.length !== secondArray.length) {
@@ -25,10 +17,7 @@ const eqArrays = function(firstArray,secondArray) {
 
 };
 
-console.log(assertEqual(eqArrays([1, 2, 3], [1, 2, 3]),true)); // => true
-console.log(assertEqual(eqArrays([1, 2, 3], [3, 2, 1]),false)); // => false
+module.exports = eqArrays;
 
-console.log(assertEqual(eqArrays(["1", "2", "3"], ["1", "2", "3"]),true)); // => true
-console.log(assertEqual(eqArrays(["1", "2", "3"], ["1", "2", 3]),false)); // => false
 
 
